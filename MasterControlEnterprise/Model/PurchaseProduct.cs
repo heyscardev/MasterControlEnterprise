@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,6 +10,7 @@ namespace MasterControlEnterprise.Model
     public class PurchaseProduct
     {
         public int Id { get; set; }
+        [Column(TypeName = "decimal(12,2)")]
         public decimal Cost { get; set; }
         public int Quantity { get; set; }
         public bool Seller { get; set; }

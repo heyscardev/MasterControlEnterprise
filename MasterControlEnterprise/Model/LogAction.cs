@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,7 +11,8 @@ namespace MasterControlEnterprise.Model
     public class LogAction
     {
         public int Id { get; set; }
-        public string Description { get; set; }
+        [MaxLength(250)]
+        public string? Description { get; set; }
         public LogActionType LogActionType { get; set; }
         //data info
         public DateTime CreatedAt { get; set; }

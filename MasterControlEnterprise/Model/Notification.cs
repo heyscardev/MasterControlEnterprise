@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,7 +11,9 @@ namespace MasterControlEnterprise.Model
     public class Notification
     {
         public int Id { get; set; }
+        [MaxLength(100)]
         public string Message { get; set; }
+        [MaxLength(150)]
         public string SolutionMessage { get; set; }
         public NotificationType NotificationType { get; set; }
         public NotificationState NotificationState { get; set; }

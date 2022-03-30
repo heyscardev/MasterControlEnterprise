@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,9 +12,10 @@ namespace MasterControlEnterprise.Model
     {
         public int Id { get; set; }
         public PurchaseState PurchaseState { get; set; }
-        public DateTime DateShop {get; set; }
-        public DateTime dateRecived { get; set; }
-        public string Description { get; set; }
+        public DateTime? DateShop {get; set; }
+        public DateTime? dateRecived { get; set; }
+        [MaxLength(200)]
+        public string? Description { get; set; }
         // data info
         public DateTime CreatedAt { get; set; }
         public DateTime UpdateAt { get; set; }
