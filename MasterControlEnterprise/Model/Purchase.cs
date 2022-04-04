@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MasterControlEnterprise.Model
 {
-    public class Purchase
+    public class Purchase : BaseData
     {
         public int Id { get; set; }
         public PurchaseState PurchaseState { get; set; }
@@ -16,11 +16,7 @@ namespace MasterControlEnterprise.Model
         public DateTime? dateRecived { get; set; }
         [MaxLength(200)]
         public string? Description { get; set; }
-        // data info
-        public DateTime CreatedAt { get; set; }
-        public DateTime UpdateAt { get; set; }
-        public DateTime DeleteAt { get; set; }
-        public bool DeleteState { get; set; }
+       
         //relation
         public int ProviderId { get; set; }
         public virtual Provider Provider { get; set; }

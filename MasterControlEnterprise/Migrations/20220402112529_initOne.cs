@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace MasterControlEnterprise.Migrations
 {
-    public partial class initial : Migration
+    public partial class initOne : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -50,10 +50,10 @@ namespace MasterControlEnterprise.Migrations
                     PostalCode = table.Column<int>(type: "int", nullable: false),
                     floor = table.Column<string>(type: "varchar(200)", maxLength: 200, nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    CreatedAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    UpdateAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    DeleteAt = table.Column<DateTime>(type: "datetime(6)", nullable: true),
-                    DeleteState = table.Column<bool>(type: "tinyint(1)", nullable: false)
+                    CreatedAt = table.Column<DateTime>(type: "datetime(6)", maxLength: 2, nullable: false),
+                    UpdateAt = table.Column<DateTime>(type: "datetime(6)", maxLength: 2, nullable: false),
+                    DeleteAt = table.Column<DateTime>(type: "datetime(6)", maxLength: 2, nullable: true),
+                    DeleteState = table.Column<bool>(type: "tinyint(1)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -73,10 +73,10 @@ namespace MasterControlEnterprise.Migrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     NotificationType = table.Column<int>(type: "int", nullable: false),
                     NotificationState = table.Column<int>(type: "int", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    UpdateAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    DeleteAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    DeleteState = table.Column<bool>(type: "tinyint(1)", nullable: false)
+                    CreatedAt = table.Column<DateTime>(type: "datetime(6)", maxLength: 2, nullable: false),
+                    UpdateAt = table.Column<DateTime>(type: "datetime(6)", maxLength: 2, nullable: false),
+                    DeleteAt = table.Column<DateTime>(type: "datetime(6)", maxLength: 2, nullable: true),
+                    DeleteState = table.Column<bool>(type: "tinyint(1)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -93,10 +93,10 @@ namespace MasterControlEnterprise.Migrations
                     Cod_Country = table.Column<int>(type: "int", nullable: false),
                     PhoneNumber = table.Column<int>(type: "int", nullable: false),
                     WhatsApp = table.Column<bool>(type: "tinyint(1)", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    UpdateAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    DeleteAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    DeleteState = table.Column<bool>(type: "tinyint(1)", nullable: false)
+                    CreatedAt = table.Column<DateTime>(type: "datetime(6)", maxLength: 2, nullable: false),
+                    UpdateAt = table.Column<DateTime>(type: "datetime(6)", maxLength: 2, nullable: false),
+                    DeleteAt = table.Column<DateTime>(type: "datetime(6)", maxLength: 2, nullable: true),
+                    DeleteState = table.Column<bool>(type: "tinyint(1)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -114,7 +114,7 @@ namespace MasterControlEnterprise.Migrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     BarCode = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    Price = table.Column<decimal>(type: "decimal(65,30)", nullable: false),
+                    Price = table.Column<decimal>(type: "decimal(12,2)", nullable: false),
                     IVA = table.Column<bool>(type: "tinyint(1)", nullable: false, defaultValue: true),
                     Description = table.Column<string>(type: "varchar(200)", maxLength: 200, nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
@@ -122,10 +122,10 @@ namespace MasterControlEnterprise.Migrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Inventory = table.Column<int>(type: "int", nullable: false, defaultValue: 0),
                     AlertInventory = table.Column<int>(type: "int", nullable: true),
-                    CreatedAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    UpdateAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    DeleteAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    DeleteState = table.Column<bool>(type: "tinyint(1)", nullable: false)
+                    CreatedAt = table.Column<DateTime>(type: "datetime(6)", maxLength: 2, nullable: false),
+                    UpdateAt = table.Column<DateTime>(type: "datetime(6)", maxLength: 2, nullable: false),
+                    DeleteAt = table.Column<DateTime>(type: "datetime(6)", maxLength: 2, nullable: true),
+                    DeleteState = table.Column<bool>(type: "tinyint(1)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -150,12 +150,12 @@ namespace MasterControlEnterprise.Migrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     image = table.Column<string>(type: "varchar(250)", maxLength: 250, nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    CreatedAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    UpdateAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    DeleteAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    DeleteState = table.Column<bool>(type: "tinyint(1)", nullable: false),
                     DirectionId = table.Column<int>(type: "int", nullable: true),
-                    PhoneId = table.Column<int>(type: "int", nullable: true)
+                    PhoneId = table.Column<int>(type: "int", nullable: true),
+                    CreatedAt = table.Column<DateTime>(type: "datetime(6)", maxLength: 2, nullable: false),
+                    UpdateAt = table.Column<DateTime>(type: "datetime(6)", maxLength: 2, nullable: false),
+                    DeleteAt = table.Column<DateTime>(type: "datetime(6)", maxLength: 2, nullable: true),
+                    DeleteState = table.Column<bool>(type: "tinyint(1)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -190,10 +190,6 @@ namespace MasterControlEnterprise.Migrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Image = table.Column<string>(type: "varchar(250)", maxLength: 250, nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    CreatedAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    UpdateAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    DeleteAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    DeleteState = table.Column<bool>(type: "tinyint(1)", nullable: false),
                     DirectionId = table.Column<int>(type: "int", nullable: true),
                     PhoneId = table.Column<int>(type: "int", nullable: true)
                 },
@@ -235,12 +231,12 @@ namespace MasterControlEnterprise.Migrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Image = table.Column<string>(type: "varchar(250)", maxLength: 250, nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    CreatedAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    UpdateAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    DeleteAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    DeleteState = table.Column<bool>(type: "tinyint(1)", nullable: false),
                     PhoneId = table.Column<int>(type: "int", nullable: true),
-                    DirectionId = table.Column<int>(type: "int", nullable: true)
+                    DirectionId = table.Column<int>(type: "int", nullable: true),
+                    CreatedAt = table.Column<DateTime>(type: "datetime(6)", maxLength: 2, nullable: false),
+                    UpdateAt = table.Column<DateTime>(type: "datetime(6)", maxLength: 2, nullable: false),
+                    DeleteAt = table.Column<DateTime>(type: "datetime(6)", maxLength: 2, nullable: true),
+                    DeleteState = table.Column<bool>(type: "tinyint(1)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -294,11 +290,11 @@ namespace MasterControlEnterprise.Migrations
                     dateRecived = table.Column<DateTime>(type: "datetime(6)", nullable: true),
                     Description = table.Column<string>(type: "varchar(200)", maxLength: 200, nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    CreatedAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    UpdateAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    DeleteAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    DeleteState = table.Column<bool>(type: "tinyint(1)", nullable: false),
-                    ProviderId = table.Column<int>(type: "int", nullable: false)
+                    ProviderId = table.Column<int>(type: "int", nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "datetime(6)", maxLength: 2, nullable: false),
+                    UpdateAt = table.Column<DateTime>(type: "datetime(6)", maxLength: 2, nullable: false),
+                    DeleteAt = table.Column<DateTime>(type: "datetime(6)", maxLength: 2, nullable: true),
+                    DeleteState = table.Column<bool>(type: "tinyint(1)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -321,11 +317,11 @@ namespace MasterControlEnterprise.Migrations
                     Description = table.Column<string>(type: "varchar(250)", maxLength: 250, nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     LogActionType = table.Column<int>(type: "int", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    UpdateAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    DeleteAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    DeleteState = table.Column<bool>(type: "tinyint(1)", nullable: false),
-                    UserId = table.Column<int>(type: "int", nullable: false)
+                    UserId = table.Column<int>(type: "int", nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "datetime(6)", maxLength: 2, nullable: false),
+                    UpdateAt = table.Column<DateTime>(type: "datetime(6)", maxLength: 2, nullable: false),
+                    DeleteAt = table.Column<DateTime>(type: "datetime(6)", maxLength: 2, nullable: true),
+                    DeleteState = table.Column<bool>(type: "tinyint(1)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -348,12 +344,12 @@ namespace MasterControlEnterprise.Migrations
                     NotificationUserState = table.Column<int>(type: "int", nullable: false),
                     NotifyAt = table.Column<DateTime>(type: "datetime(6)", nullable: true),
                     ReadAt = table.Column<DateTime>(type: "datetime(6)", nullable: true),
-                    CreatedAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    UpdateAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    DeleteAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    DeleteState = table.Column<bool>(type: "tinyint(1)", nullable: false),
                     UserId = table.Column<int>(type: "int", nullable: false),
-                    NotificationId = table.Column<int>(type: "int", nullable: false)
+                    NotificationId = table.Column<int>(type: "int", nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "datetime(6)", maxLength: 2, nullable: false),
+                    UpdateAt = table.Column<DateTime>(type: "datetime(6)", maxLength: 2, nullable: false),
+                    DeleteAt = table.Column<DateTime>(type: "datetime(6)", maxLength: 2, nullable: true),
+                    DeleteState = table.Column<bool>(type: "tinyint(1)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -380,12 +376,12 @@ namespace MasterControlEnterprise.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     SaleState = table.Column<int>(type: "int", nullable: false, defaultValue: 1),
-                    CreatedAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    UpdateAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    DeleteAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    DeleteState = table.Column<bool>(type: "tinyint(1)", nullable: false),
                     ClientId = table.Column<int>(type: "int", nullable: false),
-                    userId = table.Column<int>(type: "int", nullable: false)
+                    userId = table.Column<int>(type: "int", nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "datetime(6)", maxLength: 2, nullable: false),
+                    UpdateAt = table.Column<DateTime>(type: "datetime(6)", maxLength: 2, nullable: false),
+                    DeleteAt = table.Column<DateTime>(type: "datetime(6)", maxLength: 2, nullable: true),
+                    DeleteState = table.Column<bool>(type: "tinyint(1)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -415,11 +411,11 @@ namespace MasterControlEnterprise.Migrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Request = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    CreatedAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    UpdateAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    DeleteAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    DeleteState = table.Column<bool>(type: "tinyint(1)", nullable: false),
-                    UserId = table.Column<int>(type: "int", nullable: false)
+                    UserId = table.Column<int>(type: "int", nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "datetime(6)", maxLength: 2, nullable: false),
+                    UpdateAt = table.Column<DateTime>(type: "datetime(6)", maxLength: 2, nullable: false),
+                    DeleteAt = table.Column<DateTime>(type: "datetime(6)", maxLength: 2, nullable: true),
+                    DeleteState = table.Column<bool>(type: "tinyint(1)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -442,12 +438,12 @@ namespace MasterControlEnterprise.Migrations
                     Cost = table.Column<decimal>(type: "decimal(12,2)", nullable: false),
                     Quantity = table.Column<int>(type: "int", nullable: false),
                     Seller = table.Column<bool>(type: "tinyint(1)", nullable: false, defaultValue: false),
-                    CreatedAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    UpdateAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    DeleteAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    DeleteState = table.Column<bool>(type: "tinyint(1)", nullable: false),
                     PurchaseId = table.Column<int>(type: "int", nullable: false),
-                    ProductId = table.Column<int>(type: "int", nullable: false)
+                    ProductId = table.Column<int>(type: "int", nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "datetime(6)", maxLength: 2, nullable: false),
+                    UpdateAt = table.Column<DateTime>(type: "datetime(6)", maxLength: 2, nullable: false),
+                    DeleteAt = table.Column<DateTime>(type: "datetime(6)", maxLength: 2, nullable: true),
+                    DeleteState = table.Column<bool>(type: "tinyint(1)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -476,12 +472,12 @@ namespace MasterControlEnterprise.Migrations
                     Price = table.Column<decimal>(type: "decimal(12,2)", nullable: false),
                     Impuesto = table.Column<decimal>(type: "decimal(12,2)", nullable: false),
                     Quantity = table.Column<int>(type: "int", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    UpdateAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    DeleteAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    DeleteState = table.Column<bool>(type: "tinyint(1)", nullable: false),
                     ProductId = table.Column<int>(type: "int", nullable: false),
-                    SaleId = table.Column<int>(type: "int", nullable: false)
+                    SaleId = table.Column<int>(type: "int", nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "datetime(6)", maxLength: 2, nullable: false),
+                    UpdateAt = table.Column<DateTime>(type: "datetime(6)", maxLength: 2, nullable: false),
+                    DeleteAt = table.Column<DateTime>(type: "datetime(6)", maxLength: 2, nullable: true),
+                    DeleteState = table.Column<bool>(type: "tinyint(1)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -590,6 +586,12 @@ namespace MasterControlEnterprise.Migrations
                 name: "IX_Users_PhoneId",
                 table: "Users",
                 column: "PhoneId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Users_UserName",
+                table: "Users",
+                column: "UserName",
+                unique: true);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

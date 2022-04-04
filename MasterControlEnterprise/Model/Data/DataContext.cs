@@ -5,11 +5,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace MasterControlEnterprise.Model.Data
 {
-    public class DataContext :DbContext
+    public class DataContext : DbContext
     {
         /*
          * public DataContext(DbContextOptions<DataContext> options): base(options)
@@ -33,14 +34,9 @@ namespace MasterControlEnterprise.Model.Data
         public DbSet<Sale> Sales { get; set; }
         public DbSet<SaleProduct> SaleProducts { get; set; }
         public DbSet<SecurityQuestion> SecurityQuestions { get; set; }
-        
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            
-            //definir llaves primary keys
-            //builder.Entity<User>().HasKey(u => new { u.Id });
-            //definir relaciones
-            //Users
             builder.Entity<Product>(entity =>
             {
                 //añadiendo valores por defecto a columnas de product
@@ -65,7 +61,7 @@ namespace MasterControlEnterprise.Model.Data
                 .HasDefaultValue(UserType.SELLER);
             });
         }
-         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
@@ -75,9 +71,46 @@ namespace MasterControlEnterprise.Model.Data
                 optionsBuilder
                     .UseLazyLoadingProxies()
                     .UseMySql(CONFIGURATION["ConnectionsStrings:DefaultConnection"], new MariaDbServerVersion(new Version(10, 4, 24)))
-                    .LogTo(Console.WriteLine,Microsoft.Extensions.Logging.LogLevel.Information)
+                    .LogTo(Console.WriteLine, Microsoft.Extensions.Logging.LogLevel.Information)
                     .EnableSensitiveDataLogging()
                     .EnableDetailedErrors();
+            }
+        }
+
+        public override int SaveChanges(bool acceptAllChangesOnSuccess)
+        {
+            OnBeforeSaving();
+            return base.SaveChanges(acceptAllChangesOnSuccess);
+        }
+        public override async Task<int> SaveChangesAsync(bool acceptAllChangesOnSuccess,
+        CancellationToken cancellationToken = default(CancellationToken))
+        {
+            OnBeforeSaving();
+            return (await base.SaveChangesAsync(acceptAllChangesOnSuccess,
+                          cancellationToken));
+        }
+        private void OnBeforeSaving()
+        {
+            var entries = ChangeTracker.Entries();
+            var utcNow = DateTime.UtcNow;
+
+            foreach (var entry in entries)
+            {
+                if (entry.Entity is BaseData trackable)
+                {
+                    switch (entry.State)
+                    {
+                        case EntityState.Modified:
+                            trackable.UpdateAt = utcNow;
+                            entry.Property("CreatedAt").IsModified = false;
+                            break;
+
+                        case EntityState.Added:
+                            trackable.CreatedAt = utcNow;
+                            trackable.UpdateAt = utcNow;
+                            break;
+                    }
+                }
             }
         }
     }

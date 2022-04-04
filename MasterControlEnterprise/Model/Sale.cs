@@ -7,15 +7,10 @@ using System.Threading.Tasks;
 
 namespace MasterControlEnterprise.Model
 {
-    public class Sale
+    public class Sale : BaseData
     {
         public int Id { get; set; }
         public SaleState SaleState { get; set; }
-        //data info
-        public DateTime CreatedAt { get; set; }
-        public DateTime UpdateAt { get; set; }
-        public DateTime DeleteAt { get; set; }
-        public bool DeleteState { get; set; }
         // relations
         public int ClientId { get; set; }
         public virtual Client Client { get; set; }

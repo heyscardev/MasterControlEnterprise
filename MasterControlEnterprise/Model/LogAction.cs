@@ -8,17 +8,12 @@ using System.Threading.Tasks;
 
 namespace MasterControlEnterprise.Model
 {
-    public class LogAction
+    public class LogAction : BaseData
     {
         public int Id { get; set; }
         [MaxLength(250)]
         public string? Description { get; set; }
         public LogActionType LogActionType { get; set; }
-        //data info
-        public DateTime CreatedAt { get; set; }
-        public DateTime UpdateAt { get; set; }
-        public DateTime DeleteAt { get; set; }
-        public bool DeleteState { get; set; }
         //relations
         public int UserId { get; set; }
         public virtual User User { get; set; }

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace MasterControlEnterprise.Model
 {
-    public class Product
+    public class Product: BaseData
     {
         public int Id { get; set; }
         [MaxLength(100)]
@@ -25,11 +25,7 @@ namespace MasterControlEnterprise.Model
         public string? Image { get; set; }
         public int Inventory { get; set; }
         public int? AlertInventory { get; set; }
-        // data info
-        public DateTime CreatedAt { get; set; }
-        public DateTime UpdateAt { get; set; }
-        public DateTime DeleteAt { get; set; }
-        public bool DeleteState { get; set; }
+        
         //relations
         public virtual ICollection<Provider> Providers { get; private set; } = new ObservableCollection<Provider>();
         public virtual ICollection<PurchaseProduct> PurchaseProducts { get; private set; } = new ObservableCollection<PurchaseProduct>();

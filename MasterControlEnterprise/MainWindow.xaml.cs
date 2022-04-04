@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MasterControlEnterprise.Model;
+using MasterControlEnterprise.Model.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,7 +24,25 @@ namespace MasterControlEnterprise
     {
         public MainWindow()
         {
+            
+           
             InitializeComponent();
+            var db = new DataContext();
+            var u = new User()
+            {
+                FirstName = "loco",
+                LastName = "pepe",
+                IdentificationType = IdentificationType.V,
+                IdentityDocument = "28493312",
+                Email = "papo@gmail.com",
+                Password = "28493312h",
+                UserType = UserType.ADMIN,
+                UserName = "pepito123",
+                DeleteState = false,
+                
+            };
+            db.Users.Add(u);
+            db.SaveChanges();
         }
     }
 }

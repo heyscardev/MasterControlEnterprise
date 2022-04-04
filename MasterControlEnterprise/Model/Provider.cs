@@ -22,11 +22,6 @@ namespace MasterControlEnterprise.Model
         public string? Description { get; set; }
         [MaxLength(250)]
         public string? Image { get; set; }
-        //data info
-        public DateTime CreatedAt { get; set; } 
-        public DateTime UpdateAt { get; set; }
-        public DateTime DeleteAt { get; set; }
-        public bool DeleteState { get; set; }
         //  relations
         public int? DirectionId { get; set; }
         public virtual Direction Direction { get; set; }

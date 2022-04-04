@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MasterControlEnterprise.Model
 {
-    public class SaleProduct
+    public class SaleProduct : BaseData
     {
         public int Id { get; set; }
         [Column(TypeName = "decimal(12,2)")]
@@ -15,11 +15,6 @@ namespace MasterControlEnterprise.Model
         [Column(TypeName = "decimal(12,2)")]
         public decimal Impuesto { get; set; }
         public int Quantity { get; set; }
-        // data info
-        public DateTime CreatedAt { get; set; }
-        public DateTime UpdateAt { get; set; }
-        public DateTime DeleteAt { get; set; }
-        public bool DeleteState { get; set; }
         // relations
         public int ProductId { get; set; }
         public virtual Product Product { get; set; }

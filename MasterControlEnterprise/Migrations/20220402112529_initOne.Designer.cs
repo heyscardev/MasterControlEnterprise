@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MasterControlEnterprise.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20220330160138_initial")]
-    partial class initial
+    [Migration("20220402112529_initOne")]
+    partial class initOne
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -28,12 +28,14 @@ namespace MasterControlEnterprise.Migrations
                         .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedAt")
+                        .HasMaxLength(2)
                         .HasColumnType("datetime(6)");
 
-                    b.Property<DateTime>("DeleteAt")
+                    b.Property<DateTime?>("DeleteAt")
+                        .HasMaxLength(2)
                         .HasColumnType("datetime(6)");
 
-                    b.Property<bool>("DeleteState")
+                    b.Property<bool?>("DeleteState")
                         .HasColumnType("tinyint(1)");
 
                     b.Property<int?>("DirectionId")
@@ -65,6 +67,7 @@ namespace MasterControlEnterprise.Migrations
                         .HasColumnType("int");
 
                     b.Property<DateTime>("UpdateAt")
+                        .HasMaxLength(2)
                         .HasColumnType("datetime(6)");
 
                     b.Property<string>("image")
@@ -126,12 +129,14 @@ namespace MasterControlEnterprise.Migrations
                         .HasColumnType("varchar(90)");
 
                     b.Property<DateTime>("CreatedAt")
+                        .HasMaxLength(2)
                         .HasColumnType("datetime(6)");
 
                     b.Property<DateTime?>("DeleteAt")
+                        .HasMaxLength(2)
                         .HasColumnType("datetime(6)");
 
-                    b.Property<bool>("DeleteState")
+                    b.Property<bool?>("DeleteState")
                         .HasColumnType("tinyint(1)");
 
                     b.Property<int>("PostalCode")
@@ -148,6 +153,7 @@ namespace MasterControlEnterprise.Migrations
                         .HasColumnType("varchar(90)");
 
                     b.Property<DateTime>("UpdateAt")
+                        .HasMaxLength(2)
                         .HasColumnType("datetime(6)");
 
                     b.Property<string>("floor")
@@ -166,12 +172,14 @@ namespace MasterControlEnterprise.Migrations
                         .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedAt")
+                        .HasMaxLength(2)
                         .HasColumnType("datetime(6)");
 
-                    b.Property<DateTime>("DeleteAt")
+                    b.Property<DateTime?>("DeleteAt")
+                        .HasMaxLength(2)
                         .HasColumnType("datetime(6)");
 
-                    b.Property<bool>("DeleteState")
+                    b.Property<bool?>("DeleteState")
                         .HasColumnType("tinyint(1)");
 
                     b.Property<string>("Description")
@@ -182,6 +190,7 @@ namespace MasterControlEnterprise.Migrations
                         .HasColumnType("int");
 
                     b.Property<DateTime>("UpdateAt")
+                        .HasMaxLength(2)
                         .HasColumnType("datetime(6)");
 
                     b.Property<int>("UserId")
@@ -201,12 +210,14 @@ namespace MasterControlEnterprise.Migrations
                         .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedAt")
+                        .HasMaxLength(2)
                         .HasColumnType("datetime(6)");
 
-                    b.Property<DateTime>("DeleteAt")
+                    b.Property<DateTime?>("DeleteAt")
+                        .HasMaxLength(2)
                         .HasColumnType("datetime(6)");
 
-                    b.Property<bool>("DeleteState")
+                    b.Property<bool?>("DeleteState")
                         .HasColumnType("tinyint(1)");
 
                     b.Property<string>("Message")
@@ -226,6 +237,7 @@ namespace MasterControlEnterprise.Migrations
                         .HasColumnType("varchar(150)");
 
                     b.Property<DateTime>("UpdateAt")
+                        .HasMaxLength(2)
                         .HasColumnType("datetime(6)");
 
                     b.HasKey("Id");
@@ -240,12 +252,14 @@ namespace MasterControlEnterprise.Migrations
                         .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedAt")
+                        .HasMaxLength(2)
                         .HasColumnType("datetime(6)");
 
-                    b.Property<DateTime>("DeleteAt")
+                    b.Property<DateTime?>("DeleteAt")
+                        .HasMaxLength(2)
                         .HasColumnType("datetime(6)");
 
-                    b.Property<bool>("DeleteState")
+                    b.Property<bool?>("DeleteState")
                         .HasColumnType("tinyint(1)");
 
                     b.Property<int>("NotificationId")
@@ -261,6 +275,7 @@ namespace MasterControlEnterprise.Migrations
                         .HasColumnType("datetime(6)");
 
                     b.Property<DateTime>("UpdateAt")
+                        .HasMaxLength(2)
                         .HasColumnType("datetime(6)");
 
                     b.Property<int>("UserId")
@@ -285,18 +300,21 @@ namespace MasterControlEnterprise.Migrations
                         .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedAt")
+                        .HasMaxLength(2)
                         .HasColumnType("datetime(6)");
 
-                    b.Property<DateTime>("DeleteAt")
+                    b.Property<DateTime?>("DeleteAt")
+                        .HasMaxLength(2)
                         .HasColumnType("datetime(6)");
 
-                    b.Property<bool>("DeleteState")
+                    b.Property<bool?>("DeleteState")
                         .HasColumnType("tinyint(1)");
 
                     b.Property<int>("PhoneNumber")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("UpdateAt")
+                        .HasMaxLength(2)
                         .HasColumnType("datetime(6)");
 
                     b.Property<bool>("WhatsApp")
@@ -322,12 +340,14 @@ namespace MasterControlEnterprise.Migrations
                         .HasColumnType("varchar(50)");
 
                     b.Property<DateTime>("CreatedAt")
+                        .HasMaxLength(2)
                         .HasColumnType("datetime(6)");
 
-                    b.Property<DateTime>("DeleteAt")
+                    b.Property<DateTime?>("DeleteAt")
+                        .HasMaxLength(2)
                         .HasColumnType("datetime(6)");
 
-                    b.Property<bool>("DeleteState")
+                    b.Property<bool?>("DeleteState")
                         .HasColumnType("tinyint(1)");
 
                     b.Property<string>("Description")
@@ -354,9 +374,10 @@ namespace MasterControlEnterprise.Migrations
                         .HasColumnType("varchar(100)");
 
                     b.Property<decimal>("Price")
-                        .HasColumnType("decimal(65,30)");
+                        .HasColumnType("decimal(12,2)");
 
                     b.Property<DateTime>("UpdateAt")
+                        .HasMaxLength(2)
                         .HasColumnType("datetime(6)");
 
                     b.HasKey("Id");
@@ -369,15 +390,6 @@ namespace MasterControlEnterprise.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<DateTime>("DeleteAt")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<bool>("DeleteState")
-                        .HasColumnType("tinyint(1)");
 
                     b.Property<string>("Description")
                         .HasMaxLength(200)
@@ -407,9 +419,6 @@ namespace MasterControlEnterprise.Migrations
                     b.Property<int?>("PhoneId")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("UpdateAt")
-                        .HasColumnType("datetime(6)");
-
                     b.Property<int>("identificationType")
                         .HasColumnType("int");
 
@@ -429,15 +438,17 @@ namespace MasterControlEnterprise.Migrations
                         .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedAt")
+                        .HasMaxLength(2)
                         .HasColumnType("datetime(6)");
 
                     b.Property<DateTime?>("DateShop")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<DateTime>("DeleteAt")
+                    b.Property<DateTime?>("DeleteAt")
+                        .HasMaxLength(2)
                         .HasColumnType("datetime(6)");
 
-                    b.Property<bool>("DeleteState")
+                    b.Property<bool?>("DeleteState")
                         .HasColumnType("tinyint(1)");
 
                     b.Property<string>("Description")
@@ -451,6 +462,7 @@ namespace MasterControlEnterprise.Migrations
                         .HasColumnType("int");
 
                     b.Property<DateTime>("UpdateAt")
+                        .HasMaxLength(2)
                         .HasColumnType("datetime(6)");
 
                     b.Property<DateTime?>("dateRecived")
@@ -473,12 +485,14 @@ namespace MasterControlEnterprise.Migrations
                         .HasColumnType("decimal(12,2)");
 
                     b.Property<DateTime>("CreatedAt")
+                        .HasMaxLength(2)
                         .HasColumnType("datetime(6)");
 
-                    b.Property<DateTime>("DeleteAt")
+                    b.Property<DateTime?>("DeleteAt")
+                        .HasMaxLength(2)
                         .HasColumnType("datetime(6)");
 
-                    b.Property<bool>("DeleteState")
+                    b.Property<bool?>("DeleteState")
                         .HasColumnType("tinyint(1)");
 
                     b.Property<int>("ProductId")
@@ -496,6 +510,7 @@ namespace MasterControlEnterprise.Migrations
                         .HasDefaultValue(false);
 
                     b.Property<DateTime>("UpdateAt")
+                        .HasMaxLength(2)
                         .HasColumnType("datetime(6)");
 
                     b.HasKey("Id");
@@ -517,12 +532,14 @@ namespace MasterControlEnterprise.Migrations
                         .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedAt")
+                        .HasMaxLength(2)
                         .HasColumnType("datetime(6)");
 
-                    b.Property<DateTime>("DeleteAt")
+                    b.Property<DateTime?>("DeleteAt")
+                        .HasMaxLength(2)
                         .HasColumnType("datetime(6)");
 
-                    b.Property<bool>("DeleteState")
+                    b.Property<bool?>("DeleteState")
                         .HasColumnType("tinyint(1)");
 
                     b.Property<int>("SaleState")
@@ -531,6 +548,7 @@ namespace MasterControlEnterprise.Migrations
                         .HasDefaultValue(1);
 
                     b.Property<DateTime>("UpdateAt")
+                        .HasMaxLength(2)
                         .HasColumnType("datetime(6)");
 
                     b.Property<int>("userId")
@@ -552,12 +570,14 @@ namespace MasterControlEnterprise.Migrations
                         .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedAt")
+                        .HasMaxLength(2)
                         .HasColumnType("datetime(6)");
 
-                    b.Property<DateTime>("DeleteAt")
+                    b.Property<DateTime?>("DeleteAt")
+                        .HasMaxLength(2)
                         .HasColumnType("datetime(6)");
 
-                    b.Property<bool>("DeleteState")
+                    b.Property<bool?>("DeleteState")
                         .HasColumnType("tinyint(1)");
 
                     b.Property<decimal>("Impuesto")
@@ -576,6 +596,7 @@ namespace MasterControlEnterprise.Migrations
                         .HasColumnType("int");
 
                     b.Property<DateTime>("UpdateAt")
+                        .HasMaxLength(2)
                         .HasColumnType("datetime(6)");
 
                     b.HasKey("Id");
@@ -594,12 +615,14 @@ namespace MasterControlEnterprise.Migrations
                         .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedAt")
+                        .HasMaxLength(2)
                         .HasColumnType("datetime(6)");
 
-                    b.Property<DateTime>("DeleteAt")
+                    b.Property<DateTime?>("DeleteAt")
+                        .HasMaxLength(2)
                         .HasColumnType("datetime(6)");
 
-                    b.Property<bool>("DeleteState")
+                    b.Property<bool?>("DeleteState")
                         .HasColumnType("tinyint(1)");
 
                     b.Property<string>("Question")
@@ -613,6 +636,7 @@ namespace MasterControlEnterprise.Migrations
                         .HasColumnType("varchar(100)");
 
                     b.Property<DateTime>("UpdateAt")
+                        .HasMaxLength(2)
                         .HasColumnType("datetime(6)");
 
                     b.Property<int>("UserId")
@@ -632,12 +656,14 @@ namespace MasterControlEnterprise.Migrations
                         .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedAt")
+                        .HasMaxLength(2)
                         .HasColumnType("datetime(6)");
 
-                    b.Property<DateTime>("DeleteAt")
+                    b.Property<DateTime?>("DeleteAt")
+                        .HasMaxLength(2)
                         .HasColumnType("datetime(6)");
 
-                    b.Property<bool>("DeleteState")
+                    b.Property<bool?>("DeleteState")
                         .HasColumnType("tinyint(1)");
 
                     b.Property<int?>("DirectionId")
@@ -679,6 +705,7 @@ namespace MasterControlEnterprise.Migrations
                         .HasColumnType("int");
 
                     b.Property<DateTime>("UpdateAt")
+                        .HasMaxLength(2)
                         .HasColumnType("datetime(6)");
 
                     b.Property<string>("UserName")
@@ -696,6 +723,9 @@ namespace MasterControlEnterprise.Migrations
                     b.HasIndex("DirectionId");
 
                     b.HasIndex("PhoneId");
+
+                    b.HasIndex("UserName")
+                        .IsUnique();
 
                     b.ToTable("Users");
                 });

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MasterControlEnterprise.Model
 {
-    public class Client
+    public class Client : BaseData
     {
         public int Id { get; set; }
         [MaxLength(80)]
@@ -22,11 +22,6 @@ namespace MasterControlEnterprise.Model
         public string? Email { get; set; }
         [MaxLength(250)]
         public string? image { get; set; }
-        //data info
-        public DateTime CreatedAt { get; set; }
-        public DateTime UpdateAt { get; set; }
-        public DateTime DeleteAt { get; set; }
-        public bool DeleteState { get; set; }
         // relations
         public int? DirectionId { get; set; }
         public virtual Direction Direction { get; set; }

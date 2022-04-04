@@ -7,17 +7,13 @@ using System.Threading.Tasks;
 
 namespace MasterControlEnterprise.Model
 {
-    public class NotificationUser
+    public class NotificationUser : BaseData
     {
         public int Id { get; set; }
         public NotificationUserState NotificationUserState { get; set; }
         public DateTime? NotifyAt { get; set; }
         public DateTime? ReadAt { get; set; }
-        //data info
-        public DateTime CreatedAt { get; set; }
-        public DateTime UpdateAt { get; set; }
-        public DateTime DeleteAt { get; set; }
-        public bool DeleteState { get; set; }
+       
         //relations
         public int UserId { get; set; }
         public virtual User User { get; set; }

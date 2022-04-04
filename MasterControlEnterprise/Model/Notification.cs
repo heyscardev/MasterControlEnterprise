@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MasterControlEnterprise.Model
 {
-    public class Notification
+    public class Notification :BaseData
     {
         public int Id { get; set; }
         [MaxLength(100)]
@@ -17,11 +17,7 @@ namespace MasterControlEnterprise.Model
         public string SolutionMessage { get; set; }
         public NotificationType NotificationType { get; set; }
         public NotificationState NotificationState { get; set; }
-        //data info
-        public DateTime CreatedAt { get; set; }
-        public DateTime UpdateAt { get; set; }
-        public DateTime DeleteAt { get; set; }
-        public bool DeleteState { get; set; }
+       
         // relations
         public virtual ICollection<NotificationUser> Sales { get; private set; } = new ObservableCollection<NotificationUser>();
     }
