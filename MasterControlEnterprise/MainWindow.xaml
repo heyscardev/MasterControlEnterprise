@@ -5,10 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MasterControlEnterprise"
         mc:Ignorable="d"
-        Title="mi primera" Height="600" Width="1024">
+        Title="mi primera" Height="200" Width="250">
     <Grid>
-        <Label x:Name="hola" Content="Miguel esta aqui" HorizontalAlignment="Left" Margin="614,311,0,0" VerticalAlignment="Top" Cursor="Hand" Background="#FF23A78C" Foreground="White"/>
         <WebBrowser HorizontalAlignment="Left" Height="8" Margin="178,177,0,0" VerticalAlignment="Top" Width="30"/>
-        <TextBlock HorizontalAlignment="center" VerticalAlignment="Center" FontSize="50" Background="AliceBlue" Foreground="Blue" >hola todos</TextBlock>
+        <StackPanel>
+            <ListView x:Name="UsersList" Margin="10">
+                <ListViewItem>hola</ListViewItem>
+            </ListView>
+            <Button x:Name="refresh" Click="clickRefresh">Refresh</Button>
+        </StackPanel>
     </Grid>
 </Window>

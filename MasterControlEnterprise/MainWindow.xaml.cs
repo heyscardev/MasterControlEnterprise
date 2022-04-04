@@ -1,5 +1,6 @@
 ﻿using MasterControlEnterprise.Model;
 using MasterControlEnterprise.Model.Data;
+using MasterControlEnterprise.Seeders;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,22 +28,19 @@ namespace MasterControlEnterprise
             
            
             InitializeComponent();
-            var db = new DataContext();
-            var u = new User()
-            {
-                FirstName = "loco",
-                LastName = "pepe",
-                IdentificationType = IdentificationType.V,
-                IdentityDocument = "28493312",
-                Email = "papo@gmail.com",
-                Password = "28493312h",
-                UserType = UserType.ADMIN,
-                UserName = "pepito123",
-                DeleteState = false,
-                
-            };
-            db.Users.Add(u);
-            db.SaveChanges();
+
+        }
+        private void clickRefresh(Object o,RoutedEventArgs r)
+        {
+            UsersList.Items.Clear();
+            DataContext DB = new DataContext();
+            DB.Users.ToList().ForEach((u) => {
+                ListViewItem r = new ListViewItem();
+                r.Content = u.FirstName;
+                UsersList.Items.Add(r);
+            });
+            
+           
         }
     }
 }
