@@ -5,14 +5,36 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MasterControlEnterprise"
         mc:Ignorable="d"
-        Title="mi primera" Height="200" Width="250">
+        Title="Master Control"  ResizeMode="NoResize"  Width="400" Height="500">
+        
     <Grid>
-        <WebBrowser HorizontalAlignment="Left" Height="8" Margin="178,177,0,0" VerticalAlignment="Top" Width="30"/>
-        <StackPanel>
-            <ListView x:Name="UsersList" Margin="10">
-                <ListViewItem>hola</ListViewItem>
-            </ListView>
-            <Button x:Name="refresh" Click="clickRefresh">Refresh</Button>
-        </StackPanel>
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="20,20,20,20" BorderThickness="3,1,1,1">
+            <Border.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="White" Offset="0"/>
+                    <GradientStop Color="#FF1ABFDE" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+            <Grid VerticalAlignment="Center" HorizontalAlignment="Center" Width="400" Height="500" RenderTransformOrigin="0,0">
+                <Label Content="MasterControl" VerticalAlignment="top" HorizontalAlignment="center" Margin="0,60,0,0"/>
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="200"   >
+                    <Label Margin="0,20,0,5">Nombre de usuario</Label>
+                    <TextBox x:Name="tb_user_name" TextWrapping="Wrap" ToolTip="introduce usuario no importa si en mayusculas o minusculas"/>
+                    <Label Margin="0,20,0,5">Contraseña</Label>
+                    <PasswordBox x:Name="tb_password"  ToolTip="introduce tu contraseña esto es sensible a mayusculas"/>
+                    <Button x:Name="btn_iniciar_sesion" Margin="0,30,0,5" Content="Iniciar Sesion"  Padding="20,3" Width="150" BorderBrush="#FF002084" Background="#FF239FC8" Foreground="White"/>
+                    <Label Content="¿Olvidaste tu Contraseña?" HorizontalAlignment="Right" Margin="0,5,0,0"/>
+                    <Border>
+                        <Button Style="{StaticResource btn_primary_border}"  Content="hola"/>
+                    </Border>
+
+
+                </StackPanel>
+
+
+            </Grid>
+        </Border>
+
+
     </Grid>
 </Window>

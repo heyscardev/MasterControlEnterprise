@@ -1,6 +1,7 @@
 ﻿using MasterControlEnterprise.Model;
 using MasterControlEnterprise.Model.Data;
 using MasterControlEnterprise.Seeders;
+using MasterControlEnterprise.View_Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,19 +29,20 @@ namespace MasterControlEnterprise
             
            
             InitializeComponent();
-
+            btn_iniciar_sesion.Click += new RoutedEventHandler(event_init_sesion);
         }
-        private void clickRefresh(Object o,RoutedEventArgs r)
+        private void event_init_sesion(Object sender, RoutedEventArgs e) 
         {
-            UsersList.Items.Clear();
-            DataContext DB = new DataContext();
-            DB.Users.ToList().ForEach((u) => {
-                ListViewItem r = new ListViewItem();
-                r.Content = u.FirstName;
-                UsersList.Items.Add(r);
-            });
-            
-           
+            Session ss = Session.InitSesion(tb_user_name.Text, tb_password.Password);
+            if(ss == null)
+            {
+                MessageBox.Show("usuario o contraseña invalida");
+            }
+            else
+            {
+                MessageBox.Show("usuario: " + ss.user.FirstName + "tipo: " + ss.user.UserType);
+               
+            }
         }
     }
 }
